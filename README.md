@@ -2,7 +2,7 @@
 
 **FunnelEnvy's hiring challenges for AI-native professionals.**
 
-FunnelEnvy is a B2B conversion optimization agency building AI-powered agents that learn client businesses and compound intelligence over time. We work with enterprise clients including Box, S&P Global, and HPE.
+FunnelEnvy is a B2B conversion optimization agency building AI-powered agents that learn client businesses and compound intelligence over time.
 
 We don't hire from resumes. We hire from work.
 
