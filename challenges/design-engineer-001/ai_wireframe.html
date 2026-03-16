@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signalflow - Pipeline Intelligence Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1E293B;
+            background: #F8FAFC;
+        }
+
+        /* NAV */
+        nav {
+            background: #1B2B4B;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: lowercase;
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        nav .nav-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        nav .nav-links a.cta-nav {
+            background: #3B82F6;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 40px 60px;
+            background: white;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #FEF3C7;
+            color: #92400E;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1B2B4B;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #64748B;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .btn-primary {
+            background: #3B82F6;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #3B82F6;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            border: 1px solid #3B82F6;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* LOGOS */
+        .logo-bar {
+            padding: 40px;
+            text-align: center;
+            background: #F8FAFC;
+        }
+        .logo-bar p {
+            color: #94A3B8;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logos span {
+            color: #CBD5E1;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 80px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #1B2B4B;
+            margin-bottom: 15px;
+        }
+        .features .subtitle {
+            text-align: center;
+            color: #64748B;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .feature-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 28px;
+        }
+        .feature-card .icon {
+            width: 48px;
+            height: 48px;
+            background: #EFF6FF;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 22px;
+        }
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1B2B4B;
+            margin-bottom: 8px;
+        }
+        .feature-card p {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.6;
+        }
+
+        /* SOCIAL PROOF */
+        .social-proof {
+            background: #1B2B4B;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        .social-proof h2 {
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+        .stat {
+            color: white;
+        }
+        .stat .number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #3B82F6;
+        }
+        .stat .label {
+            font-size: 14px;
+            color: #94A3B8;
+            margin-top: 4px;
+        }
+        .testimonial {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .testimonial blockquote {
+            color: #CBD5E1;
+            font-size: 18px;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .testimonial .author {
+            color: #94A3B8;
+            font-size: 14px;
+        }
+        .testimonial .author strong {
+            color: white;
+        }
+
+        /* HOW IT WORKS */
+        .how-it-works {
+            padding: 80px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: #1B2B4B;
+            margin-bottom: 50px;
+        }
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .step {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #3B82F6;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .step-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1B2B4B;
+            margin-bottom: 4px;
+        }
+        .step-content p {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.6;
+        }
+
+        /* FINAL CTA */
+        .final-cta {
+            background: #EFF6FF;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        .final-cta h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1B2B4B;
+            margin-bottom: 16px;
+        }
+        .final-cta p {
+            color: #64748B;
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1B2B4B;
+            padding: 40px;
+            text-align: center;
+            color: #64748B;
+            font-size: 13px;
+        }
+        footer a {
+            color: #94A3B8;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">signalflow</div>
+        <div class="nav-links">
+            <a href="#">Product</a>
+            <a href="#">Pricing</a>
+            <a href="#">Customers</a>
+            <a href="#">Docs</a>
+            <a href="#" class="cta-nav">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">🚀 Now with Salesforce + HubSpot integration</div>
+        <h1>Know Which Deals Will Close Before Your Reps Do</h1>
+        <p>Signalflow connects your CRM, marketing automation, and product usage data to surface pipeline intelligence that actually helps you hit your number.</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn-primary">Start Free Trial</a>
+            <a href="#" class="btn-secondary">Watch Demo</a>
+        </div>
+    </section>
+
+    <section class="logo-bar">
+        <p>Trusted by 200+ B2B revenue teams</p>
+        <div class="logos">
+            <span>ACME CORP</span>
+            <span>NORTHWIND</span>
+            <span>CONTOSO</span>
+            <span>FABRIKAM</span>
+            <span>WIDGETCO</span>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Everything You Need to Hit Your Number</h2>
+        <p class="subtitle">One platform that connects the dots across your entire revenue engine.</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon">📊</div>
+                <h3>Pipeline Scoring</h3>
+                <p>ML-powered deal scoring that learns from your historical close patterns. Know which deals are real and which are wishful thinking.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Signal Detection</h3>
+                <p>Automatically surface buying signals from product usage, email engagement, and content consumption. Stop guessing, start knowing.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔗</div>
+                <h3>Data Unification</h3>
+                <p>Connect your CRM, MAP, product analytics, and conversation intelligence in one place. No more spreadsheet gymnastics.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📈</div>
+                <h3>Revenue Forecasting</h3>
+                <p>Bottom-up forecasting that uses actual engagement data instead of rep gut feel. Give your board numbers you can stand behind.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🎯</div>
+                <h3>Rep Coaching</h3>
+                <p>AI-generated deal recommendations for every rep, every day. What to prioritize, what to let go, and what to say next.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔔</div>
+                <h3>Alert System</h3>
+                <p>Real-time Slack and email alerts when deals show risk signals or buying intent spikes. Never be blindsided in a forecast call again.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-proof">
+        <h2>The Numbers Speak for Themselves</h2>
+        <div class="stats-row">
+            <div class="stat">
+                <div class="number">34%</div>
+                <div class="label">Increase in win rate</div>
+            </div>
+            <div class="stat">
+                <div class="number">2.3x</div>
+                <div class="label">Faster deal velocity</div>
+            </div>
+            <div class="stat">
+                <div class="number">91%</div>
+                <div class="label">Forecast accuracy</div>
+            </div>
+        </div>
+        <div class="testimonial">
+            <blockquote>"We went from guessing which deals would close to actually knowing. Our forecast accuracy went from 60% to 91% in one quarter. The board finally trusts our numbers."</blockquote>
+            <p class="author"><strong>Sarah Chen</strong>, VP Revenue Operations at Northwind SaaS</p>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <h2>Up and Running in 15 Minutes</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Connect Your Stack</h3>
+                    <p>One-click integrations with Salesforce, HubSpot, Marketo, Pendo, Amplitude, Gong, and 40+ other tools. No engineering required.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Let Signalflow Learn</h3>
+                    <p>Our models analyze your historical deals, engagement patterns, and product usage data to build a custom scoring model for your business.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Start Closing Smarter</h3>
+                    <p>Get daily deal intelligence delivered to Slack, email, or directly in your CRM. Your reps know exactly where to focus every morning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>Stop Losing Deals You Should Have Won</h2>
+        <p>Join 200+ revenue teams that use Signalflow to hit their number every quarter.</p>
+        <a href="#" class="btn-primary">Start Free Trial</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Signalflow, Inc. All rights reserved.</p>
+        <p style="margin-top: 12px;">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Security</a>
+            <a href="#">Status</a>
+        </p>
+    </footer>
+
+</body>
+</html>
